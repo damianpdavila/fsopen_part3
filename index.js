@@ -4,8 +4,8 @@ const morgan = require('morgan');
 const cors = require('cors');
 
 app.use(express.json());
-
 app.use(cors());
+app.use(express.static('build'));
 
 morgan.token('reqbody', (req, res) => { 
     return JSON.stringify(req.body);
@@ -72,6 +72,7 @@ const generateId = () => {
 
 app.post("/api/persons/", (request, response) => {
     let body = request.body;
+    console.log(`Request: ${request.body}`);
 
     if (! body.hasOwnProperty('name') || body.name == "") {
         return response.status(400).json({
