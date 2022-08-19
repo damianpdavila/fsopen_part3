@@ -87,7 +87,7 @@ app.post("/api/persons/", (request, response, next) => {
   let body = request.body;
   console.log(`Request: ${JSON.stringify(request.body)}`);
 
-  
+  /*  
   if (!body.hasOwnProperty("name") || body.name == "") {
     return response.status(400).json({
       error: "name missing",
@@ -98,7 +98,7 @@ app.post("/api/persons/", (request, response, next) => {
       error: "phone missing",
     });
   }
-  
+  */
 
   const person = new Person({
     name: body.name,
